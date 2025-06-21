@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      EM JOGO -- {{jogador.nome}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="jogador && jogador.nome && listaPerguntas">
+    <ion-item-group>
+      <ion-item *ngFor="let pergunta of listaPerguntas; let i = index" lines="full">
+        <ion-label class="ion-text-wrap">
+          <div>
+            <h1>{{pergunta.enunciado}}</h1>
+            <p>Valor: {{pergunta.valor}} pontos</p>
+            <ion-radio-group [(ngModel)]="respostasSelecionadas[i]">
+              <ion-radio *ngFor="let resposta of pergunta.respostas; let j = index" [value]="j">
+                {{resposta}}
+              </ion-radio>
+            </ion-radio-group>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <ion-button color="success" expand="block" (click)="terminarQuiz()">Enviar respostas</ion-button>
+</ion-content>

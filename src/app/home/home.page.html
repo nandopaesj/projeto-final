@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Página Inicial
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Insira seu nome</ion-label>
+    <ion-input [(ngModel)]="nomeInput"></ion-input>
+  </ion-item>
+
+  <ion-button color="success" expand="block" (click)="iniciarQuiz()">Iniciar quiz</ion-button>
+</ion-content>
